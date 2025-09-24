@@ -1,0 +1,30 @@
+{
+  "templates": [
+    {
+      "id": "react-component",
+      "name": "React Component",
+      "description": "A reusable React component template",
+      "type": "component",
+      "category": "ui",
+      "files": [
+        {
+          "source": "Component.tsx",
+          "target": "src/components/{{componentName}}.tsx",
+          "type": "file",
+          "variables": ["componentName"]
+        }
+      ],
+      "variables": [
+        {
+          "name": "componentName",
+          "description": "Name of the React component",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "dependencies": [],
+      "tags": ["react", "component", "ui"]
+    }
+  ],
+  "updatedAt": "2024-01-01T00:00:00.000Z"
+}

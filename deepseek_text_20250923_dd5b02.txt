@@ -1,0 +1,41 @@
+ai-development-workstation/
+├── package.json
+├── tsconfig.json
+├── tsconfig.main.json
+├── vite.config.ts
+├── .gitignore
+├── src/
+│   ├── main/           # Backend (Electron main process)
+│   │   └── main.ts
+│   ├── renderer/       # Frontend (React)
+│   │   ├── index.html
+│   │   └── src/
+│   │       ├── App.tsx
+│   │       ├── main.tsx
+│   │       ├── components/
+│   │       ├── pages/
+│   │       └── contexts/
+│   ├── core/           # Shared backend logic
+│   │   ├── ConfigManager.ts
+│   │   ├── GitHubService.ts
+│   │   ├── WorkflowOrchestrator.ts
+│   │   ├── AIService.ts
+│   │   ├── KnowledgeBaseManager.ts
+│   │   ├── TemplateManager.ts
+│   │   ├── SecurityScanner.ts
+│   │   └── DeploymentManager.ts
+│   ├── preload/        # IPC bridge
+│   │   └── preload.ts
+│   └── shared/         # Shared types/utilities
+│       └── types.ts
+├── assets/
+│   ├── icon.ico
+│   ├── icon.png
+│   └── icon.icns
+├── scripts/
+│   ├── build.js
+│   └── publish.js
+├── templates/
+│   └── templates.json
+└── config/
+    └── default.json

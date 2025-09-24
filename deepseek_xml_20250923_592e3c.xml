@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+         xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest"
+         xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10">
+  <Identity Name="AIDevelopmentWorkstation"
+            Publisher="CN=AI Dev Workstation"
+            Version="1.0.0.0" />
+            
+  <Properties>
+    <DisplayName>AI Development Workstation</DisplayName>
+    <PublisherDisplayName>AI Dev Workstation</PublisherDisplayName>
+    <Logo>assets\StoreLogo.png</Logo>
+  </Properties>
+  
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.14393.0" MaxVersionTested="10.0.19041.0"/>
+  </Dependencies>
+  
+  <Applications>
+    <Application Id="App" Executable="AI Development Workstation.exe" EntryPoint="FullTrustApplication">
+      <uap:VisualElements DisplayName="AI Development Workstation"
+                          Square150x150Logo="assets\Square150x150Logo.png"
+                          Square44x44Logo="assets\Square44x44Logo.png"
+                          Description="AI-powered development environment"
+                          BackgroundColor="transparent">
+        <uap:DefaultTile Wide310x150Logo="assets\Wide310x150Logo.png"/>
+      </uap:VisualElements>
+    </Application>
+  </Applications>
+  
+  <Capabilities>
+    <Capability Name="internetClient" />
+  </Capabilities>
+</Package>

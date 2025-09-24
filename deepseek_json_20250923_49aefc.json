@@ -1,0 +1,102 @@
+{
+  "name": "ai-development-workstation",
+  "version": "1.0.0",
+  "description": "AI Development Workstation - Automated Development Environment",
+  "main": "dist/main/main.js",
+  "homepage": "./",
+  "scripts": {
+    "build": "npm run build:renderer && npm run build:main && npm run pack",
+    "build:renderer": "vite build",
+    "build:main": "tsc -p tsconfig.main.json",
+    "dev": "concurrently \"npm run dev:renderer\" \"npm run dev:main\"",
+    "dev:renderer": "vite",
+    "dev:main": "tsc -p tsconfig.main.json -w",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "dist:win": "electron-builder --win",
+    "dist:mac": "electron-builder --mac",
+    "dist:linux": "electron-builder --linux",
+    "build:complete": "node scripts/build.js",
+    "build:all": "npm run build:win && npm run build:mac && npm run build:linux",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "dependencies": {
+    "@octokit/rest": "^19.0.7",
+    "axios": "^1.5.0",
+    "sqlite3": "^5.1.6",
+    "simple-git": "^3.19.1",
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "chalk": "^4.1.2",
+    "fs-extra": "^11.1.1",
+    "node-cron": "^3.0.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.16.0",
+    "styled-components": "^6.0.7",
+    "lucide-react": "^0.288.0"
+  },
+  "devDependencies": {
+    "electron": "^28.0.0",
+    "electron-builder": "^24.6.4",
+    "typescript": "^5.2.2",
+    "concurrently": "^8.2.0",
+    "vite": "^4.4.0",
+    "@vitejs/plugin-react": "^4.1.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0"
+  },
+  "build": {
+    "appId": "com.ai-dev.workstation",
+    "productName": "AI Development Workstation",
+    "directories": {
+      "output": "release",
+      "buildResources": "assets"
+    },
+    "files": [
+      "dist/**/*",
+      "assets/**/*",
+      "node_modules/**/*",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "templates",
+        "to": "templates",
+        "filter": ["**/*"]
+      }
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64", "ia32"]
+        },
+        {
+          "target": "portable",
+          "arch": ["x64", "ia32"]
+        }
+      ],
+      "icon": "assets/icon.ico",
+      "publisherName": "AI Dev Workstation",
+      "verifyUpdateCodeSignature": false
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "AI Development Workstation"
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "assets/icon.icns",
+      "category": "public.app-category.developer-tools"
+    },
+    "linux": {
+      "target": "AppImage",
+      "icon": "assets/icon.png",
+      "category": "Development"
+    }
+  }
+}

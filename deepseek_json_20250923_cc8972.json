@@ -1,0 +1,22 @@
+{
+  "github": {
+    "token": "",
+    "username": ""
+  },
+  "ai": {
+    "openaiKey": "",
+    "deepseekKey": "",
+    "claudeKey": "",
+    "preferredProvider": "openai"
+  },
+  "paths": {
+    "projectsDirectory": "C:/Users/User/AI-Projects",
+    "templatesDirectory": "./templates",
+    "knowledgeBaseDirectory": "./knowledge-base"
+  },
+  "features": {
+    "autoDeploy": true,
+    "securityScans": true,
+    "aiSuggestions": true
+  }
+}
